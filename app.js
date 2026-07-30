@@ -11,6 +11,7 @@ const template = document.querySelector("#artwork-template");
 const mapStatus = document.querySelector("#map-status");
 const mapError = document.querySelector("#map-error");
 const { directionsUrl, LOCATION_PERMISSION_MESSAGE } = window.ISPERANavigation;
+const { t, localizeArtworkType, applyDocumentTranslations } = window.ISPERAI18n;
 const MARKER_OFFSETS = {
   "artwork-1": [-22, -6],
   "artwork-2": [22, -6],
@@ -82,7 +83,7 @@ function renderList() {
     fragment.querySelector(".artwork-title").textContent = p.title;
     fragment.querySelector(".artwork-artist").textContent = p.artist;
     const type = fragment.querySelector(".artwork-type");
-    if (p.artworkType) type.textContent = p.artworkType;
+    if (p.artworkType) type.textContent = localizeArtworkType(p.artworkType);
     else type.hidden = true;
     fragment.querySelector(".artwork-address").textContent = p.address;
     const detailsLink = fragment.querySelector(".details-link");
@@ -96,6 +97,9 @@ function renderList() {
     const navigateLink = fragment.querySelector(".navigate-link");
     if (feature.geometry) navigateLink.href = directionsUrl(feature);
     else navigateLink.hidden = true;
+    navigateLink.textContent = t("walk");
+    mapLink.textContent = t("openPosition");
+    share.textContent = t("share");
 
     button.addEventListener("click", () => selectArtwork(feature.id, true));
     share.addEventListener("click", () => shareArtwork(feature));
@@ -174,14 +178,14 @@ function selectArtwork(id, moveMap = false) {
     if (feature.properties.artworkType) {
       const type = document.createElement("span");
       type.className = "popup-type";
-      type.textContent = feature.properties.artworkType;
+      type.textContent = localizeArtworkType(feature.properties.artworkType);
       popupMeta.append(type);
     }
     const popupShare = document.createElement("button");
     popupShare.className = "popup-share";
     popupShare.type = "button";
-    popupShare.title = "Condividi";
-    popupShare.setAttribute("aria-label", `Condividi ${feature.properties.title}`);
+    popupShare.title = t("share");
+    popupShare.setAttribute("aria-label", `${t("share")} ${feature.properties.title}`);
     popupShare.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"></circle><circle cx="6" cy="12" r="2.5"></circle><circle cx="18" cy="19" r="2.5"></circle><path d="M8.2 10.8 15.8 6.3M8.2 13.2l7.6 4.5"></path></svg>';
     popupShare.addEventListener("click", (event) => {
       event.stopPropagation();
@@ -194,7 +198,7 @@ function selectArtwork(id, moveMap = false) {
     navigate.href = directionsUrl(feature);
     navigate.target = "_blank";
     navigate.rel = "noopener noreferrer";
-    navigate.textContent = "Naviga a piedi ↗";
+    navigate.textContent = `${t("walk")} ↗`;
     popupCard.append(navigate);
     if (feature.properties.detailsUrl) {
       const details = document.createElement("a");
@@ -202,7 +206,7 @@ function selectArtwork(id, moveMap = false) {
       details.href = feature.properties.detailsUrl;
       details.target = "_blank";
       details.rel = "noopener noreferrer";
-      details.textContent = "Descrizione completa ↗";
+      details.textContent = `${t("fullDescription")} ↗`;
       popupCard.append(details);
     }
     const markerOffset = state.markers.get(id)?.currentOffset || [0, 0];
@@ -226,19 +230,19 @@ async function shareArtwork(feature, triggerButton = null) {
       if (button.classList.contains("popup-share")) {
         const prior = button.innerHTML;
         button.textContent = "✓";
-        button.setAttribute("aria-label", "Link copiato");
+        button.setAttribute("aria-label", t("linkCopied"));
         setTimeout(() => {
           button.innerHTML = prior;
-          button.setAttribute("aria-label", `Condividi ${feature.properties.title}`);
+          button.setAttribute("aria-label", `${t("share")} ${feature.properties.title}`);
         }, 1600);
       } else {
         const prior = button.textContent;
-        button.textContent = "Link copiato";
+        button.textContent = t("linkCopied");
         setTimeout(() => { button.textContent = prior; }, 1600);
       }
     }
   } catch (error) {
-    if (error.name !== "AbortError") console.warn("Impossibile condividere", error);
+    if (error.name !== "AbortError") console.warn(t("shareFailed"), error);
   }
 }
 
@@ -256,8 +260,8 @@ function setupInterface() {
     const nextExpanded = !expanded;
     document.body.dataset.listCollapsed = String(!nextExpanded);
     listToggle.setAttribute("aria-expanded", String(nextExpanded));
-    listToggle.setAttribute("aria-label", nextExpanded ? "Nascondi elenco" : "Mostra elenco");
-    listToggle.title = nextExpanded ? "Nascondi elenco" : "Mostra elenco";
+    listToggle.setAttribute("aria-label", nextExpanded ? t("hideList") : t("showList"));
+    listToggle.title = nextExpanded ? t("hideList") : t("showList");
     if (state.map) requestAnimationFrame(() => state.map.resize());
   });
   const aboutButton = document.querySelector("#about-button");
@@ -271,13 +275,13 @@ function setupInterface() {
 
 function locateUser() {
   const button = document.querySelector("#locate-button");
-  if (!navigator.geolocation) { button.textContent = "Posizione non disponibile"; return; }
+  if (!navigator.geolocation) { button.textContent = t("locationUnavailable"); return; }
   if (!state.locationPromptAccepted) {
     if (!window.confirm(LOCATION_PERMISSION_MESSAGE)) return;
     state.locationPromptAccepted = true;
   }
   button.disabled = true;
-  button.textContent = "Localizzazione…";
+  button.textContent = t("locating");
   navigator.geolocation.getCurrentPosition(({ coords }) => {
     if (state.userMarker) state.userMarker.remove();
     const dot = document.createElement("div");
@@ -285,14 +289,15 @@ function locateUser() {
     state.userMarker = new maplibregl.Marker({ element: dot }).setLngLat([coords.longitude, coords.latitude]).addTo(state.map);
     state.map.flyTo({ center: [coords.longitude, coords.latitude], zoom: 17 });
     button.disabled = false;
-    button.innerHTML = '<span aria-hidden="true">◎</span> Posizione trovata';
+    button.innerHTML = `<span aria-hidden="true">◎</span> ${t("locationFound")}`;
   }, () => {
     button.disabled = false;
-    button.textContent = "Posizione non disponibile";
+    button.textContent = t("locationUnavailable");
   }, { enableHighAccuracy: true, timeout: 9000, maximumAge: 60000 });
 }
 
 async function init() {
+  applyDocumentTranslations();
   setupInterface();
   try {
     const response = await fetch(CONFIG.dataUrl);
@@ -301,7 +306,7 @@ async function init() {
     state.artworks = geojson.features;
     renderList();
 
-    if (!window.maplibregl) throw new Error("MapLibre non caricato");
+    if (!window.maplibregl) throw new Error(t("mapLibreMissing"));
     state.map = new maplibregl.Map({ container: "map", style: CONFIG.mapStyle, center: CONFIG.initialCenter, zoom: CONFIG.initialZoom, attributionControl: true });
     state.map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right");
     state.map.once("load", () => {
@@ -315,7 +320,7 @@ async function init() {
     console.error(error);
     mapStatus.hidden = true;
     mapError.hidden = false;
-    mapError.querySelector("span").textContent = "Avvia il sito tramite un server locale e usa l’elenco delle posizioni.";
+    mapError.querySelector("span").textContent = t("localServerFallback");
   }
 }
 

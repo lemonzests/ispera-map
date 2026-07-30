@@ -8,6 +8,10 @@ The map is deployed on Vercel and available for mobile testing:
 
 https://ispera-map.vercel.app
 
+The English interface is available at:
+
+https://ispera-map.vercel.app/?lang=en
+
 The artwork dataset currently contains 13 works. Public-facing artwork information is complete: every work has a title, artist, artwork type, address, and map coordinate. Artwork descriptions and visitor-facing numbering are intentionally not used.
 
 The remaining launch work is operational rather than content entry: test the deployed site on physical mobile devices, confirm final pin placement on site, review production dependencies, and prepare the final domain/QR destination.
@@ -30,6 +34,7 @@ MapLibre GL JS, MapLibre CSS, DM Sans, and Fraunces are stored in this repositor
 index.html                 Page structure and public information
 styles.css                 Visual identity and responsive layout
 app.js                     Map, markers, list, sharing, and interactions
+i18n.js                    Italian/English interface text and artwork-type translations
 navigation.js              Walking-directions links and location-permission copy
 assets/logo.png            ISPERA logo
 assets/fonts/              Local DM Sans and Fraunces webfonts
@@ -123,10 +128,23 @@ The main colors and typography are centralized at the start of `styles.css`:
 
 The current logo is stored at `assets/logo.png` and referenced in `index.html`.
 
+## Edit the Italian and English versions
+
+The language switcher uses the same static page and adds `?lang=en` for the English version. Artwork deep links retain their language, for example:
+
+```text
+https://ispera-map.vercel.app/?lang=en#artwork-6
+```
+
+Edit interface translations in the `messages.it` and `messages.en` objects in `i18n.js`. English translations of artwork categories such as `Pittura` → `Painting` are in the `artworkTypes` object in the same file.
+
+Artwork titles, artist names, and Italian street or venue names remain unchanged because they are proper names/source content. Add an explicit bilingual data field to `data/artworks.geojson` if official translated artwork titles are supplied later.
+
 ## Current features
 
 - Hosted vector basemap rendered with MapLibre GL JS
 - Responsive desktop and mobile layouts
+- Discreet IT/EN language switcher with language-specific deep links
 - Free-path visitor experience without route numbering or artwork count
 - Unified red location pins
 - Smooth marker offsets for nearby or shared locations

@@ -1,5 +1,5 @@
 (function exposeNavigation(globalScope) {
-  const LOCATION_PERMISSION_MESSAGE = "Consenti l’accesso alla posizione per visualizzarti sulla mappa e raggiungere le opere.";
+  const LOCATION_PERMISSION_MESSAGE = globalScope.ISPERAI18n?.t("locationPermission") || "Consenti l’accesso alla posizione per visualizzarti sulla mappa e raggiungere le opere.";
 
   function directionsUrl(feature) {
     if (!feature?.geometry) return "";

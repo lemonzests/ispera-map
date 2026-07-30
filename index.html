@@ -9,69 +9,77 @@
   <link rel="preconnect" href="https://tiles.openfreemap.org" crossorigin>
   <link rel="stylesheet" href="vendor/maplibre-gl/maplibre-gl.css?v=5.6.1">
   <link rel="stylesheet" href="assets/fonts/fonts.css?v=20260730-1">
-  <link rel="stylesheet" href="styles.css?v=20260730-15">
+  <link rel="stylesheet" href="styles.css?v=20260730-16">
   <script src="vendor/maplibre-gl/maplibre-gl.js?v=5.6.1" defer></script>
-  <script src="navigation.js?v=20260730-1" defer></script>
-  <script src="app.js?v=20260730-21" defer></script>
+  <script src="i18n.js?v=20260730-1" defer></script>
+  <script src="navigation.js?v=20260730-2" defer></script>
+  <script src="app.js?v=20260730-22" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#artwork-list">Vai all’elenco delle opere</a>
+  <a class="skip-link" href="#artwork-list" data-i18n="skipToList">Vai all’elenco delle opere</a>
 
   <header class="site-header">
-    <button class="list-toggle" id="list-toggle" type="button" aria-controls="collection" aria-expanded="true" aria-label="Nascondi elenco" title="Nascondi elenco">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <rect x="3" y="4" width="18" height="16" rx="1"></rect>
-        <path class="list-toggle-panel" d="M9 4v16"></path>
-        <path class="list-toggle-arrow" d="m14 9 3 3-3 3"></path>
-      </svg>
-    </button>
-    <a class="wordmark" href="./" aria-label="Torna alla homepage ISPERA">
+    <div class="header-start">
+      <button class="list-toggle" id="list-toggle" type="button" aria-controls="collection" aria-expanded="true" aria-label="Nascondi elenco" title="Nascondi elenco" data-i18n-aria-label="hideList" data-i18n-title="hideList">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3" y="4" width="18" height="16" rx="1"></rect>
+          <path class="list-toggle-panel" d="M9 4v16"></path>
+          <path class="list-toggle-arrow" d="m14 9 3 3-3 3"></path>
+        </svg>
+      </button>
+      <nav class="language-switcher" aria-label="Lingua" data-i18n-aria-label="languageLabel">
+        <a href="./" data-language="it" lang="it" hreflang="it">IT</a>
+        <span aria-hidden="true">/</span>
+        <a href="?lang=en" data-language="en" lang="en" hreflang="en">EN</a>
+      </nav>
+    </div>
+    <a class="wordmark" href="./" aria-label="Torna alla homepage ISPERA" data-i18n-aria-label="homeLabel">
       <img src="assets/logo.png" alt="ISPERA">
     </a>
-    <button class="about-button" type="button" id="about-button" aria-expanded="false" aria-controls="about-panel">Info</button>
+    <button class="about-button" type="button" id="about-button" aria-expanded="false" aria-controls="about-panel" data-i18n="about">Info</button>
   </header>
 
   <aside class="about-panel" id="about-panel" hidden>
-    <button class="about-close" id="about-close" type="button" aria-label="Chiudi informazioni">×</button>
-    <p class="eyebrow">Mostra diffusa</p>
+    <button class="about-close" id="about-close" type="button" aria-label="Chiudi informazioni" data-i18n-aria-label="closeAbout">×</button>
+    <p class="eyebrow" data-i18n="exhibitionKind">Mostra diffusa</p>
     <h1>ISPERA 2026</h1>
-    <p>Per informazioni dettagliate sulle opere, visita il nostro sito: https://www.storiedalvicolo.it/.</p>
-    <p class="data-note">La posizione dell’utente è facoltativa e viene elaborata solo dal browser.</p>
+    <p><span data-i18n="aboutTextBefore">Per informazioni dettagliate sulle opere, visita il nostro sito:</span> <a href="https://www.storiedalvicolo.it/" target="_blank" rel="noopener noreferrer">storiedalvicolo.it</a>.</p>
+    <p class="data-note" data-i18n="privacyNote">La posizione dell’utente è facoltativa e viene elaborata solo dal browser.</p>
   </aside>
 
   <main class="explorer">
-    <section class="map-region" aria-label="Mappa delle opere">
-      <div id="map" role="application" aria-label="Mappa interattiva delle opere a Laconi"></div>
-      <div class="map-status" id="map-status" role="status">Caricamento mappa…</div>
+    <section class="map-region" aria-label="Mappa delle opere" data-i18n-aria-label="mapRegionLabel">
+      <div id="map" role="application" aria-label="Mappa interattiva delle opere a Laconi" data-i18n-aria-label="mapLabel"></div>
+      <div class="map-status" id="map-status" role="status" data-i18n="loadingMap">Caricamento mappa…</div>
       <div class="map-error" id="map-error" role="alert" hidden>
-        <strong>La mappa non è disponibile.</strong>
-        <span>Usa l’elenco per consultare tutte le posizioni.</span>
+        <strong data-i18n="mapUnavailable">La mappa non è disponibile.</strong>
+        <span data-i18n="mapFallback">Usa l’elenco per consultare tutte le posizioni.</span>
       </div>
-      <button class="locate-button" id="locate-button" type="button" aria-label="Mostra la mia posizione">
-        <span aria-hidden="true">◎</span> La mia posizione
+      <button class="locate-button" id="locate-button" type="button" aria-label="Mostra la mia posizione" data-i18n-aria-label="locateLabel">
+        <span aria-hidden="true">◎</span> <span data-i18n="locate">La mia posizione</span>
       </button>
     </section>
 
-    <aside class="collection" id="collection" aria-label="Elenco delle opere">
+    <aside class="collection" id="collection" aria-label="Elenco delle opere" data-i18n-aria-label="collectionLabel">
       <div class="collection-heading">
         <div>
-          <p class="eyebrow">Percorso libero</p>
-          <h1>Le opere<br></h1>
+          <p class="eyebrow" data-i18n="freePath">Percorso libero</p>
+          <h1><span data-i18n="artworks">Le opere</span><br></h1>
         </div>
 
       </div>
-      <p class="instruction">Seleziona un’opera per localizzarla sulla mappa.</p>
+      <p class="instruction" data-i18n="instruction">Seleziona un’opera per localizzarla sulla mappa.</p>
       <ul class="artwork-list" id="artwork-list"></ul>
       <footer class="list-footer">
-        <span>Dati cartografici © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap contributors</a></span>
+        <span><span data-i18n="mapData">Dati cartografici</span> © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap contributors</a></span>
         <span>Tiles: <a href="https://openfreemap.org/" target="_blank" rel="noopener noreferrer">OpenFreeMap</a></span>
       </footer>
     </aside>
   </main>
 
-  <nav class="mobile-tabs" aria-label="Vista">
-    <button type="button" data-view="map" aria-pressed="true">Mappa</button>
-    <button type="button" data-view="list" aria-pressed="false">Elenco</button>
+  <nav class="mobile-tabs" aria-label="Vista" data-i18n-aria-label="viewLabel">
+    <button type="button" data-view="map" aria-pressed="true" data-i18n="mapTab">Mappa</button>
+    <button type="button" data-view="list" aria-pressed="false" data-i18n="listTab">Elenco</button>
   </nav>
 
   <template id="artwork-template">
@@ -87,16 +95,16 @@
       </button>
       <div class="artwork-detail" hidden>
         <div class="detail-actions">
-          <a class="navigate-link" target="_blank" rel="noopener noreferrer">Naviga a piedi</a>
-          <a class="map-link" target="_blank" rel="noopener noreferrer">Apri posizione</a>
-          <button class="share-button" type="button">Condividi</button>
+          <a class="navigate-link" target="_blank" rel="noopener noreferrer" data-i18n="walk">Naviga a piedi</a>
+          <a class="map-link" target="_blank" rel="noopener noreferrer" data-i18n="openPosition">Apri posizione</a>
+          <button class="share-button" type="button" data-i18n="share">Condividi</button>
         </div>
       </div>
     </li>
   </template>
 
   <noscript>
-    <div class="noscript">JavaScript è necessario per la mappa. Coordinate: 39.854691, 9.052016 · 39.854058, 9.053990 · 39.852858, 9.053349.</div>
+    <div class="noscript">JavaScript è necessario per visualizzare la mappa. / JavaScript is required to view the map.</div>
   </noscript>
 </body>
 </html>
