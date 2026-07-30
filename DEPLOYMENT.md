@@ -10,7 +10,10 @@ Publish the entire `ispera-map` directory while preserving this structure:
 index.html
 styles.css
 app.js
+assets/logo.png
+assets/fonts/
 data/artworks.geojson
+vendor/maplibre-gl/
 ```
 
 Serve over HTTPS so browser geolocation can work. (`localhost` is also allowed during development.)

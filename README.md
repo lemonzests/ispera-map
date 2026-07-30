@@ -15,14 +15,14 @@ The remaining launch work is operational rather than content entry: test the dep
 ## Architecture
 
 - Static HTML, CSS, and JavaScript; no build step is required.
-- MapLibre GL JS renders the interactive map in the browser.
+- A locally stored copy of MapLibre GL JS 5.6.1 renders the interactive map in the browser.
 - OpenFreeMap supplies the hosted vector basemap.
 - `data/artworks.geojson` is the editable source of artwork information and coordinates.
 - No backend, database, account, or API key is required.
 - The accessible artwork list remains available if the map cannot load.
 - Vercel hosts the current production preview.
 
-MapLibre and the web fonts are currently loaded from external services. They may be stored locally in a later production-hardening step. Before final launch, review OpenFreeMap’s current terms, capacity, attribution requirements, and support model.
+MapLibre GL JS, MapLibre CSS, DM Sans, and Fraunces are stored in this repository and served by the same host as the application. The OpenFreeMap basemap remains an external service. Before final launch, review OpenFreeMap’s current terms, capacity, attribution requirements, and support model.
 
 ## Project structure
 
@@ -31,7 +31,9 @@ index.html                 Page structure and public information
 styles.css                 Visual identity and responsive layout
 app.js                     Map, markers, list, sharing, and interactions
 assets/logo.png            ISPERA logo
+assets/fonts/              Local DM Sans and Fraunces webfonts
 data/artworks.geojson      Artwork information and coordinates
+vendor/maplibre-gl/        Local MapLibre GL JS 5.6.1 JavaScript and CSS
 DEPLOYMENT.md              Hosting and QR checklist
 ```
 
