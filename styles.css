@@ -87,9 +87,10 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--accent); outlin
 .maplibregl-popup-content strong { white-space: pre-line; font-family: var(--font-display); font-size: 1rem; }
 .popup-card { display: grid; gap: 5px; min-width: 170px; }
 .popup-artist { color: var(--muted); font-size: .78rem; }
+.popup-meta { min-width: 170px; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .popup-type { width: fit-content; padding: 3px 6px; background: var(--paper-strong); color: var(--accent-dark); font-size: .68rem; font-weight: 600; }
 .popup-details { width: fit-content; margin-top: 7px; color: var(--accent-dark); font-size: .78rem; font-weight: 600; text-underline-offset: 3px; }
-.popup-share { width: 44px; height: 44px; display: grid; place-items: center; justify-self: end; margin: 2px -8px -8px 0; padding: 0; border: 0; background: transparent; color: var(--ink); cursor: pointer; }
+.popup-share { width: 44px; height: 44px; flex: 0 0 44px; display: grid; place-items: center; margin: -8px -8px -8px 0; padding: 0; border: 0; background: transparent; color: var(--ink); cursor: pointer; }
 .popup-share svg { width: 18px; height: 18px; fill: var(--white); stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; }
 .popup-share:hover { background: var(--paper-strong); color: var(--accent-dark); }
 

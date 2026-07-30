@@ -156,20 +156,13 @@ function selectArtwork(id, moveMap = false) {
     artist.className = "popup-artist";
     artist.textContent = feature.properties.artist;
     popupCard.append(title, artist);
+    const popupMeta = document.createElement("div");
+    popupMeta.className = "popup-meta";
     if (feature.properties.artworkType) {
       const type = document.createElement("span");
       type.className = "popup-type";
       type.textContent = feature.properties.artworkType;
-      popupCard.append(type);
-    }
-    if (feature.properties.detailsUrl) {
-      const details = document.createElement("a");
-      details.className = "popup-details";
-      details.href = feature.properties.detailsUrl;
-      details.target = "_blank";
-      details.rel = "noopener noreferrer";
-      details.textContent = "Descrizione completa ↗";
-      popupCard.append(details);
+      popupMeta.append(type);
     }
     const popupShare = document.createElement("button");
     popupShare.className = "popup-share";
@@ -181,7 +174,17 @@ function selectArtwork(id, moveMap = false) {
       event.stopPropagation();
       shareArtwork(feature, popupShare);
     });
-    popupCard.append(popupShare);
+    popupMeta.append(popupShare);
+    popupCard.append(popupMeta);
+    if (feature.properties.detailsUrl) {
+      const details = document.createElement("a");
+      details.className = "popup-details";
+      details.href = feature.properties.detailsUrl;
+      details.target = "_blank";
+      details.rel = "noopener noreferrer";
+      details.textContent = "Descrizione completa ↗";
+      popupCard.append(details);
+    }
     const markerOffset = state.markers.get(id)?.currentOffset || [0, 0];
     const popupOffset = [markerOffset[0], markerOffset[1] - 48];
     state.popup = new maplibregl.Popup({ anchor: "bottom", offset: popupOffset, closeButton: true })
