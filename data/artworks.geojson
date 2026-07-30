@@ -1,0 +1,279 @@
+{
+  "type": "FeatureCollection",
+  "name": "ISPERA artworks",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "artwork-1",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.051219,
+          39.855333
+        ]
+      },
+      "properties": {
+        "number": "1",
+        "title": "Cronaca di resistenza",
+        "artist": "Rosario Salis",
+        "artworkType": "Pittura",
+        "address": "Corso Giuseppe Garibaldi 70",
+        "detailsUrl": "",
+        "sourceLocation": "https://maps.app.goo.gl/A9Cm5ocxwRtxDFh39",
+        "verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "artwork-2",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.051219,
+          39.855333
+        ]
+      },
+      "properties": {
+        "number": "2",
+        "title": "Nonna",
+        "artist": "Valentina Musiu",
+        "artworkType": "Quadro in legno",
+        "address": "Corso Giuseppe Garibaldi 70",
+        "detailsUrl": "",
+        "sourceLocation": "https://maps.app.goo.gl/A9Cm5ocxwRtxDFh39",
+        "verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "artwork-3",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.052827,
+          39.853754
+        ]
+      },
+      "properties": {
+        "number": "3",
+        "title": "Doppelgänger – Il volto che non dorme",
+        "artist": "Rosmunda",
+        "artworkType": "Fotografia",
+        "address": "Corso Giuseppe Garibaldi 36/A",
+        "detailsUrl": "",
+        "sourceLocation": "https://maps.app.goo.gl/LVNVBmfYabAYJCye6",
+        "verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "artwork-4",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.053382,
+          39.852855
+        ]
+      },
+      "properties": {
+        "number": "4",
+        "title": "Ri-Umanizziamoci",
+        "artist": "Cristina Sarigu",
+        "artworkType": "Pittura",
+        "address": "Via Giuseppe Mazzini 8",
+        "detailsUrl": "",
+        "sourceLocation": "https://maps.app.goo.gl/dutrdXbaxRLEkbbf8",
+        "verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "artwork-5",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.053343,
+          39.853622
+        ]
+      },
+      "properties": {
+        "number": "5",
+        "title": "Z100V",
+        "artist": "Ledian",
+        "artworkType": "Scultura in fil di ferro",
+        "address": "Bar Menhir, Corso Giuseppe Garibaldi",
+        "detailsUrl": "",
+        "sourceLocation": "https://maps.app.goo.gl/a8gbGYYv3Tuvz4b89",
+        "verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "artwork-6",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.053343,
+          39.853622
+        ]
+      },
+      "properties": {
+        "number": "6",
+        "title": "Senza Titolo",
+        "artist": "Sara Pisci",
+        "artworkType": "Tessuto",
+        "address": "Bar Menhir, Corso Giuseppe Garibaldi",
+        "detailsUrl": "",
+        "sourceLocation": "https://maps.app.goo.gl/a8gbGYYv3Tuvz4b89",
+        "verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "artwork-7",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.053214,
+          39.853676
+        ]
+      },
+      "properties": {
+        "number": "7",
+        "title": "Il tuo corpo frugato sempre come la tua mente, io (non) sono una macchina!\nManifesti pop per una liberazione",
+        "artist": "Amirah Suboh",
+        "artworkType": "Pittura",
+        "address": "Bar Menhir, Corso Giuseppe Garibaldi",
+        "detailsUrl": "",
+        "sourceLocation": "https://maps.app.goo.gl/a8gbGYYv3Tuvz4b89",
+        "verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "artwork-8",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.0530643,
+          39.8537278
+        ]
+      },
+      "properties": {
+        "number": "8",
+        "title": "Border Pool",
+        "artist": "Del Proposto",
+        "artworkType": "Illustrazione digitale",
+        "address": "Pasticceria Fulghesu, Corso Giuseppe Garibaldi 36/A",
+        "detailsUrl": "",
+        "sourceLocation": "https://maps.app.goo.gl/wD7vqGRQp6wuAoRd7",
+        "verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "artwork-9",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.052929,
+          39.853818
+        ]
+      },
+      "properties": {
+        "number": "9",
+        "title": "Assenza di futuro",
+        "artist": "Manlio",
+        "artworkType": "Pittura",
+        "address": "Corso Giuseppe Garibaldi 36/A",
+        "detailsUrl": "",
+        "sourceLocation": "https://maps.app.goo.gl/oZd3fxBveD531uS17",
+        "verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "artwork-10",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.052922,
+          39.853832
+        ]
+      },
+      "properties": {
+        "number": "10",
+        "title": "Arràstos",
+        "artist": "Silvia Gua",
+        "artworkType": "Fotografia ricamata",
+        "address": "Corso Giuseppe Garibaldi 36/A",
+        "detailsUrl": "",
+        "sourceLocation": "https://maps.app.goo.gl/oZd3fxBveD531uS17",
+        "verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "artwork-11",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.052649,
+          39.854135
+        ]
+      },
+      "properties": {
+        "number": "11",
+        "title": "STOP",
+        "artist": "Giorgia Santoro",
+        "artworkType": "Installazione fotografica",
+        "address": "Comune di Laconi, Piazza Guglielmo Marconi 1",
+        "detailsUrl": "",
+        "sourceLocation": "https://maps.app.goo.gl/BWtGSRanWr24BQrs9",
+        "verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "artwork-12",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.052109,
+          39.854854
+        ]
+      },
+      "properties": {
+        "number": "12",
+        "title": "Ahora",
+        "artist": "Johnny Revelator",
+        "artworkType": "Fotografia",
+        "address": "Pro Loco di Laconi, Via Roma",
+        "detailsUrl": "",
+        "sourceLocation": "https://maps.app.goo.gl/ESwxEmRVWqeo2PYL6",
+        "verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "artwork-13",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.052024,
+          39.854804
+        ]
+      },
+      "properties": {
+        "number": "13",
+        "title": "1) 72\n2) threads of fault",
+        "artist": "Marco Loi",
+        "artworkType": "Tessuto",
+        "address": "Vicolo di Treballu",
+        "detailsUrl": "",
+        "sourceLocation": "https://maps.app.goo.gl/yVwdUVnvfehXove78",
+        "verified": false
+      }
+    }
+  ]
+}

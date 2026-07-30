@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f2eadb">
+  <meta name="description" content="Mappa delle opere della mostra diffusa ISPERA a Laconi, Sardegna.">
+  <title>ISPERA — Mappa delle opere</title>
+  <link rel="preconnect" href="https://tiles.openfreemap.org" crossorigin>
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.6.1/dist/maplibre-gl.css">
+  <link rel="stylesheet" href="styles.css?v=20260728-8">
+  <script src="https://unpkg.com/maplibre-gl@5.6.1/dist/maplibre-gl.js" defer></script>
+  <script src="app.js?v=20260728-12" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#artwork-list">Vai all’elenco delle opere</a>
+
+  <header class="site-header">
+    <span class="header-spacer" aria-hidden="true"></span>
+    <div class="wordmark">
+      <img src="assets/logo.png" alt="ISPERA">
+    </div>
+    <button class="about-button" type="button" id="about-button" aria-expanded="false" aria-controls="about-panel">Info</button>
+  </header>
+
+  <aside class="about-panel" id="about-panel" hidden>
+    <button class="about-close" id="about-close" type="button" aria-label="Chiudi informazioni">×</button>
+    <p class="eyebrow">Mostra diffusa</p>
+    <h1>ISPERA</h1>
+    <p>La mappa è in fase di completamento. Date, informazioni pratiche e link di approfondimento sono ancora da confermare.</p>
+    <p class="data-note">La posizione dell’utente è facoltativa e viene elaborata solo dal browser.</p>
+  </aside>
+
+  <main class="explorer">
+    <section class="map-region" aria-label="Mappa delle opere">
+      <div id="map" role="application" aria-label="Mappa interattiva delle opere a Laconi"></div>
+      <div class="map-status" id="map-status" role="status">Caricamento mappa…</div>
+      <div class="map-error" id="map-error" role="alert" hidden>
+        <strong>La mappa non è disponibile.</strong>
+        <span>Usa l’elenco per consultare tutte le posizioni.</span>
+      </div>
+      <button class="locate-button" id="locate-button" type="button" aria-label="Mostra la mia posizione">
+        <span aria-hidden="true">◎</span> La mia posizione
+      </button>
+    </section>
+
+    <aside class="collection" id="collection" aria-label="Elenco delle opere">
+      <div class="collection-heading">
+        <div>
+          <p class="eyebrow">Percorso libero</p>
+          <h1>Le opere<br></h1>
+        </div>
+
+      </div>
+      <p class="instruction">Seleziona un’opera per localizzarla sulla mappa.</p>
+      <ul class="artwork-list" id="artwork-list"></ul>
+      <footer class="list-footer">
+        <span>Dati cartografici © OpenStreetMap</span>
+        <span>Tiles: OpenFreeMap</span>
+      </footer>
+    </aside>
+  </main>
+
+  <nav class="mobile-tabs" aria-label="Vista">
+    <button type="button" data-view="map" aria-pressed="true">Mappa</button>
+    <button type="button" data-view="list" aria-pressed="false">Elenco</button>
+  </nav>
+
+  <template id="artwork-template">
+    <li class="artwork-item">
+      <button class="artwork-card" type="button">
+        <span class="artwork-copy">
+          <strong class="artwork-title"></strong>
+          <span class="artwork-artist"></span>
+          <span class="artwork-type"></span>
+          <span class="artwork-address"></span>
+        </span>
+        <span class="artwork-arrow" aria-hidden="true">↗</span>
+      </button>
+      <div class="artwork-detail" hidden>
+        <div class="detail-actions">
+          <a class="map-link" target="_blank" rel="noopener noreferrer">Apri posizione</a>
+          <button class="share-button" type="button">Condividi</button>
+        </div>
+      </div>
+    </li>
+  </template>
+
+  <noscript>
+    <div class="noscript">JavaScript è necessario per la mappa. Coordinate: 39.854691, 9.052016 · 39.854058, 9.053990 · 39.852858, 9.053349.</div>
+  </noscript>
+</body>
+</html>
