@@ -8,15 +8,21 @@
   <title>ISPERA — Mappa delle opere</title>
   <link rel="preconnect" href="https://tiles.openfreemap.org" crossorigin>
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.6.1/dist/maplibre-gl.css">
-  <link rel="stylesheet" href="styles.css?v=20260730-10">
+  <link rel="stylesheet" href="styles.css?v=20260730-12">
   <script src="https://unpkg.com/maplibre-gl@5.6.1/dist/maplibre-gl.js" defer></script>
-  <script src="app.js?v=20260730-15" defer></script>
+  <script src="app.js?v=20260730-16" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#artwork-list">Vai all’elenco delle opere</a>
 
   <header class="site-header">
-    <span class="header-spacer" aria-hidden="true"></span>
+    <button class="list-toggle" id="list-toggle" type="button" aria-controls="collection" aria-expanded="true" aria-label="Nascondi elenco" title="Nascondi elenco">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="3" y="4" width="18" height="16" rx="1"></rect>
+        <path class="list-toggle-panel" d="M9 4v16"></path>
+        <path class="list-toggle-arrow" d="m14 9 3 3-3 3"></path>
+      </svg>
+    </button>
     <div class="wordmark">
       <img src="assets/logo.png" alt="ISPERA">
     </div>

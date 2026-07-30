@@ -187,7 +187,7 @@ function selectArtwork(id, moveMap = false) {
     }
     const markerOffset = state.markers.get(id)?.currentOffset || [0, 0];
     const popupOffset = [markerOffset[0], markerOffset[1] - 48];
-    state.popup = new maplibregl.Popup({ anchor: "bottom", offset: popupOffset, closeButton: true })
+    state.popup = new maplibregl.Popup({ anchor: "bottom", offset: popupOffset, closeButton: true, focusAfterOpen: false })
       .setLngLat(feature.geometry.coordinates)
       .setDOMContent(popupCard)
       .addTo(state.map);
@@ -230,6 +230,16 @@ function setView(view) {
 
 function setupInterface() {
   document.querySelectorAll("[data-view]").forEach((button) => button.addEventListener("click", () => setView(button.dataset.view)));
+  const listToggle = document.querySelector("#list-toggle");
+  listToggle.addEventListener("click", () => {
+    const expanded = listToggle.getAttribute("aria-expanded") === "true";
+    const nextExpanded = !expanded;
+    document.body.dataset.listCollapsed = String(!nextExpanded);
+    listToggle.setAttribute("aria-expanded", String(nextExpanded));
+    listToggle.setAttribute("aria-label", nextExpanded ? "Nascondi elenco" : "Mostra elenco");
+    listToggle.title = nextExpanded ? "Nascondi elenco" : "Mostra elenco";
+    if (state.map) requestAnimationFrame(() => state.map.resize());
+  });
   const aboutButton = document.querySelector("#about-button");
   const aboutPanel = document.querySelector("#about-panel");
   const closeAbout = () => { aboutPanel.hidden = true; aboutButton.setAttribute("aria-expanded", "false"); aboutButton.focus(); };
