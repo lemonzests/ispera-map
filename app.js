@@ -1,5 +1,5 @@
 const CONFIG = {
-  dataUrl: "data/artworks.geojson?v=20260728-10",
+  dataUrl: "data/artworks.geojson?v=20260730-11",
   mapStyle: "https://tiles.openfreemap.org/styles/liberty",
   initialCenter: [9.05312, 39.85385],
   initialZoom: 16.3
