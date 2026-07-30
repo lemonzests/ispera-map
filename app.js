@@ -18,12 +18,19 @@ const MARKER_OFFSETS = {
   "artwork-12": [16, -14],
   "artwork-13": [-16, 14]
 };
-const PRECISE_AT_CLOSE_ZOOM = new Set(["artwork-9", "artwork-10", "artwork-12", "artwork-13"]);
+const CLOSE_ZOOM_OFFSETS = {
+  "artwork-5": [-20, -10],
+  "artwork-9": [8, -10],
+  "artwork-10": [34, -18],
+  "artwork-12": [0, 0],
+  "artwork-13": [0, 0]
+};
 
 function markerOffsetAtZoom(id, baseOffset) {
-  if (!PRECISE_AT_CLOSE_ZOOM.has(id) || !state.map) return baseOffset;
-  const scale = Math.max(0, Math.min(1, (18 - state.map.getZoom()) / 0.8));
-  return baseOffset.map((value) => Math.round(value * scale));
+  const closeOffset = CLOSE_ZOOM_OFFSETS[id];
+  if (!closeOffset || !state.map) return baseOffset;
+  const progress = Math.max(0, Math.min(1, (state.map.getZoom() - 17.2) / 0.8));
+  return baseOffset.map((value, axis) => Math.round(value + (closeOffset[axis] - value) * progress));
 }
 
 function updateMarkerOffsets() {
