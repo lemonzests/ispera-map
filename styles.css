@@ -72,6 +72,8 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--accent); outlin
 .detail-actions a, .detail-actions button { min-height: 44px; display: inline-flex; align-items: center; padding: 0 13px; border: 1px solid var(--ink); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; }
 .detail-actions a:hover, .detail-actions button:hover { background: var(--ink); color: var(--white); }
 .list-footer { display: flex; flex-direction: column; gap: 3px; margin-top: 24px; color: var(--muted); font-size: .62rem; }
+.list-footer a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+.list-footer a:hover { color: var(--ink); }
 
 .ispera-marker { width: 44px; height: 44px; display: grid; place-items: end center; padding: 0; border: 0; background: transparent; color: var(--white); cursor: pointer; filter: drop-shadow(0 3px 4px rgb(30 41 34 / 34%)); }
 .marker-pin { width: 28px; height: 36px; overflow: visible; transition: transform .15s ease; }
