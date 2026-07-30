@@ -1,5 +1,5 @@
 const CONFIG = {
-  dataUrl: "data/artworks.geojson?v=20260730-11",
+  dataUrl: "data/artworks.geojson?v=20260730-12",
   mapStyle: "https://tiles.openfreemap.org/styles/liberty",
   initialCenter: [9.05312, 39.85385],
   initialZoom: 16.3
@@ -11,15 +11,24 @@ const template = document.querySelector("#artwork-template");
 const mapStatus = document.querySelector("#map-status");
 const mapError = document.querySelector("#map-error");
 const MARKER_OFFSETS = {
-  "artwork-5": [0, -18],
-  "artwork-6": [0, 18],
+  "artwork-1": [-22, -6],
+  "artwork-2": [22, -6],
+  "artwork-3": [-20, -10],
+  "artwork-4": [-36, -8],
+  "artwork-5": [20, -10],
+  "artwork-6": [-4, -26],
   "artwork-9": [-22, -24],
   "artwork-10": [22, -24],
   "artwork-12": [16, -14],
   "artwork-13": [-16, 14]
 };
 const CLOSE_ZOOM_OFFSETS = {
-  "artwork-5": [-20, -10],
+  "artwork-1": [-14, -4],
+  "artwork-2": [14, -4],
+  "artwork-3": [-12, -6],
+  "artwork-4": [-32, -8],
+  "artwork-5": [12, -6],
+  "artwork-6": [-10, -24],
   "artwork-9": [8, -10],
   "artwork-10": [34, -18],
   "artwork-12": [0, 0],

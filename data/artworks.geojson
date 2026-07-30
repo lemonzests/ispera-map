@@ -92,8 +92,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.053343,
-          39.853622
+          9.052843,
+          39.853726
         ]
       },
       "properties": {
@@ -101,10 +101,10 @@
         "title": "Z100V",
         "artist": "Ledian",
         "artworkType": "Scultura in fil di ferro",
-        "address": "Bar Menhir, Corso Giuseppe Garibaldi",
+        "address": "Corso Giuseppe Garibaldi 57",
         "detailsUrl": "",
-        "sourceLocation": "https://maps.app.goo.gl/a8gbGYYv3Tuvz4b89",
-        "verified": false
+        "sourceLocation": "39.853726, 9.052843",
+        "verified": true
       }
     },
     {
@@ -113,8 +113,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.053343,
-          39.853622
+          9.05339,
+          39.852867
         ]
       },
       "properties": {
@@ -122,10 +122,10 @@
         "title": "Senza Titolo",
         "artist": "Sara Pisci",
         "artworkType": "Tessuto",
-        "address": "Bar Menhir, Corso Giuseppe Garibaldi",
+        "address": "Via Giuseppe Mazzini 8",
         "detailsUrl": "",
-        "sourceLocation": "https://maps.app.goo.gl/a8gbGYYv3Tuvz4b89",
-        "verified": false
+        "sourceLocation": "39.852867, 9.05339",
+        "verified": true
       }
     },
     {
@@ -269,7 +269,7 @@
         "title": "1) 72\n2) threads of fault",
         "artist": "Marco Loi",
         "artworkType": "Tessuto",
-        "address": "Vicolo di Treballu, Vicolo II Garibaldi 4)",
+        "address": "Vicolo di Treballu, Vicolo II Garibaldi 4",
         "detailsUrl": "",
         "sourceLocation": "https://maps.app.goo.gl/yVwdUVnvfehXove78",
         "verified": false
