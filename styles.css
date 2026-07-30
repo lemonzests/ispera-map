@@ -46,7 +46,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--accent); outlin
 .map-status, .map-error { position: absolute; z-index: 5; top: 18px; left: 50%; transform: translateX(-50%); padding: 10px 14px; background: var(--white); border: 1px solid var(--line); font-size: .82rem; box-shadow: 0 3px 16px rgb(30 41 34 / 12%); }
 .map-error { display: grid; gap: 3px; min-width: min(380px, calc(100% - 32px)); }
 .map-error[hidden], .map-status[hidden] { display: none; }
-.locate-button { position: absolute; z-index: 4; right: 14px; bottom: 24px; min-height: 46px; padding: 0 15px; border: 1px solid var(--ink); background: var(--white); cursor: pointer; box-shadow: 0 3px 12px rgb(30 41 34 / 14%); }
+.locate-button { position: absolute; z-index: 4; right: 14px; bottom: 48px; min-height: 46px; padding: 0 15px; border: 1px solid var(--ink); background: var(--white); cursor: pointer; box-shadow: 0 3px 12px rgb(30 41 34 / 14%); }
 .locate-button:hover { background: var(--ink); color: var(--white); }
 
 .collection { grid-area: list; min-width: 0; overflow-y: auto; padding: 38px 26px 20px; border-right: 1px solid var(--line); background: var(--paper); }
@@ -105,7 +105,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--accent); outlin
   .collection { display: none; padding: 26px 20px 90px; border: 0; }
   body[data-view="list"] .map-region { display: none; }
   body[data-view="list"] .collection { display: block; }
-  .locate-button { bottom: 18px; }
+  .locate-button { bottom: 42px; }
   .mobile-tabs { position: fixed; z-index: 30; left: 0; right: 0; bottom: 0; height: var(--tabs-height); display: grid; grid-template-columns: 1fr 1fr; padding: 7px max(12px, env(safe-area-inset-right)) calc(7px + env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left)); background: var(--paper); border-top: 1px solid var(--line); }
   .mobile-tabs button { min-height: 48px; border: 0; background: transparent; cursor: pointer; }
   .mobile-tabs button[aria-pressed="true"] { background: var(--ink); color: var(--white); }
