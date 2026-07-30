@@ -30,6 +30,7 @@ MapLibre GL JS, MapLibre CSS, DM Sans, and Fraunces are stored in this repositor
 index.html                 Page structure and public information
 styles.css                 Visual identity and responsive layout
 app.js                     Map, markers, list, sharing, and interactions
+navigation.js              Walking-directions links and location-permission copy
 assets/logo.png            ISPERA logo
 assets/fonts/              Local DM Sans and Fraunces webfonts
 data/artworks.geojson      Artwork information and coordinates
@@ -133,7 +134,8 @@ The current logo is stored at `assets/logo.png` and referenced in `index.html`.
 - Synchronized list, markers, and popups
 - Deep links such as `#artwork-6`
 - Native share action with copy-link fallback
-- Optional browser geolocation
+- Optional browser geolocation with an explanatory consent step
+- Walking-navigation links that open each artwork in Google Maps
 - Links to positions on OpenStreetMap
 - Desktop control to hide or restore the artwork list
 - Mobile map/list tabs

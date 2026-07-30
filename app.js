@@ -5,11 +5,12 @@ const CONFIG = {
   initialZoom: 16.3
 };
 
-const state = { map: null, artworks: [], markers: new Map(), userMarker: null, popup: null, selectedId: null };
+const state = { map: null, artworks: [], markers: new Map(), userMarker: null, popup: null, selectedId: null, locationPromptAccepted: false };
 const list = document.querySelector("#artwork-list");
 const template = document.querySelector("#artwork-template");
 const mapStatus = document.querySelector("#map-status");
 const mapError = document.querySelector("#map-error");
+const { directionsUrl, LOCATION_PERMISSION_MESSAGE } = window.ISPERANavigation;
 const MARKER_OFFSETS = {
   "artwork-1": [-22, -6],
   "artwork-2": [22, -6],
@@ -92,6 +93,9 @@ function renderList() {
     const mapLink = fragment.querySelector(".map-link");
     if (feature.geometry) mapLink.href = mapUrl(feature);
     else mapLink.hidden = true;
+    const navigateLink = fragment.querySelector(".navigate-link");
+    if (feature.geometry) navigateLink.href = directionsUrl(feature);
+    else navigateLink.hidden = true;
 
     button.addEventListener("click", () => selectArtwork(feature.id, true));
     share.addEventListener("click", () => shareArtwork(feature));
@@ -185,6 +189,13 @@ function selectArtwork(id, moveMap = false) {
     });
     popupMeta.append(popupShare);
     popupCard.append(popupMeta);
+    const navigate = document.createElement("a");
+    navigate.className = "popup-navigate";
+    navigate.href = directionsUrl(feature);
+    navigate.target = "_blank";
+    navigate.rel = "noopener noreferrer";
+    navigate.textContent = "Naviga a piedi ↗";
+    popupCard.append(navigate);
     if (feature.properties.detailsUrl) {
       const details = document.createElement("a");
       details.className = "popup-details";
@@ -261,6 +272,10 @@ function setupInterface() {
 function locateUser() {
   const button = document.querySelector("#locate-button");
   if (!navigator.geolocation) { button.textContent = "Posizione non disponibile"; return; }
+  if (!state.locationPromptAccepted) {
+    if (!window.confirm(LOCATION_PERMISSION_MESSAGE)) return;
+    state.locationPromptAccepted = true;
+  }
   button.disabled = true;
   button.textContent = "Localizzazione…";
   navigator.geolocation.getCurrentPosition(({ coords }) => {

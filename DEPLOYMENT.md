@@ -10,6 +10,7 @@ Publish the entire `ispera-map` directory while preserving this structure:
 index.html
 styles.css
 app.js
+navigation.js
 assets/logo.png
 assets/fonts/
 data/artworks.geojson
