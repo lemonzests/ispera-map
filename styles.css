@@ -32,7 +32,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--accent); outlin
 .list-toggle-arrow { transform-origin: center; transition: transform .15s ease; }
 .list-toggle[aria-expanded="true"] .list-toggle-arrow { transform: rotate(180deg); }
 .list-toggle[aria-expanded="false"] .list-toggle-panel { opacity: .25; }
-.wordmark { min-width: 0; display: flex; align-items: center; justify-self: center; }
+.wordmark { min-width: 0; display: flex; align-items: center; justify-self: center; text-decoration: none; }
 .wordmark img { display: block; width: 140px; max-width: 100%; height: auto; max-height: 53px; object-fit: contain; }
 .place { margin: 0; color: var(--muted); font-size: .86rem; letter-spacing: .06em; }
 .about-button { justify-self: end; min-height: 44px; min-width: 56px; padding: 0; border: 0; border-bottom: 1px solid var(--ink); background: transparent; cursor: pointer; }
